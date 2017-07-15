@@ -1,0 +1,128 @@
+@startuml
+skinparam monochrome false
+
+title MMORPG (Unknown name)
+
+package "User" {
+
+
+	class Account {
+		username : String
+		email : String
+		password : String
+	}
+}
+
+package "Server" <<Cloud>> {
+	package "Database" <<Database>> {
+
+	}
+}
+
+class Character {
+	nickname : String
+}
+
+class Component {
+	+virtual ~Component()
+}
+
+class Entity {
+
+}
+
+class Mob {
+	id : MobID
+	entityID : Integer
+	name : String
+	--Stats--
+	hp : Integer
+	strength : Integer
+	stamina : Integer
+	dexterity : Integer
+	intelligence : Integer
+	minDamage : Integer
+	maxDamage : Integer
+}
+
+class Attribute {
+	attack : Integer
+	defense : Integer
+	--Stats--
+	strength : Integer
+	stamina : Integer
+	dexterity : Integer
+	intelligence : Integer
+	..Rating..
+	criticalRate : %
+	reflectRate : %
+	hitRate : %
+	speedRate : %
+	attackSpeed : %
+}
+
+enum BonusAttribute {
+	ADDITIONAL_DAMAGE
+	STRENGTH
+	STAMINA
+	DEXTERITY
+	INTELLIGENCE
+}
+
+enum Sex {
+	MALE
+	FEMALE
+}
+
+enum WeaponType {
+
+}
+
+package "Items" <<Node>> {
+	package "Consumable" #ffb56a {
+		class Consumable << (S,orchid) >> {
+			cooldown : Integer
+		}
+
+		enum Food {
+			CAKE
+			MILK_CHOCOLATE
+			WHITE_CHOCOLATE
+			BLACK_CHOCOLATE
+			SMALL_POTION
+			MEDIUM_POTION
+			LARGE_POTION
+		}
+		note as NoteFood
+		"This type of consumable
+		regenerate the hit points
+		of the Character"
+		end note
+		Food .. NoteFood
+
+		enum Refresher {
+
+		}
+		note as NoteRefresher
+		"This type of consumable
+		regenerate the mana points
+		of the Character"
+		end note
+		Refresher .. NoteRefresher
+	}
+	enum Hat {
+
+	}
+
+
+	enum Cloaks {
+
+	}
+}
+
+
+enum Armor {
+
+}
+
+@enduml
