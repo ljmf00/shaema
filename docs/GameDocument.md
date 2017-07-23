@@ -50,5 +50,8 @@ This game design document is a blueprint from wich a game is to be built. As suc
 ## 8. Technical 
 ### 8.1. Target Hardware
 ### 8.2. Development hardware and software (including Game Engine)
+- [Tiled Map Editor](http://www.mapeditor.org/)
+- [FontSquirrel](https://www.fontsquirrel.com/)
+
 ### 8.3. Network requirements
 ## 9. Game Art
